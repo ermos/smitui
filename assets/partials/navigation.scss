@@ -6,6 +6,7 @@
   align-items: center;
   border-bottom: 3px solid $main-color-dark-1;
   border-top: 0;
+  margin-top: 50px;
   height: 50px;
   justify-content: space-around;
 
@@ -27,15 +28,6 @@
   &__icon {
     width: 80px;
     height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
     border-radius: 50%;
-    background-color: $text-color;
-    color: #fff;
-    font-weight: bold;
-    font-size: 2.4rem;
-    transform: rotate(-15deg);
   }
 }

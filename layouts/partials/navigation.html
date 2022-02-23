@@ -6,7 +6,15 @@
     {{ $active = or $active (and (eq .Identifier "home") (eq $currentPage.Title "")) }}
     {{ $active = or $active (and (eq .Name "Tags") (eq $currentPage.Section "tags")) }}
     {{ if eq .Identifier "logo" }}
-    <a class="navigations__logo" href="/"><div class="navigations__icon">KS</div></a>
+    <a class="navigations__logo" href="/">
+        <img
+                alt="{{ .Name }}"
+                class="navigations__icon"
+                src="{{ "/img/logo.jpeg" | relURL }}"
+                width="80"
+                height="80"
+        />
+    </a>
     {{ else }}
     <a title="{{ .Name }}"
        href="{{ .URL }}"

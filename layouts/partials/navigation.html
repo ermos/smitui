@@ -7,7 +7,7 @@
     {{ $active = or $active (and (eq .Name "Works") (eq $currentPage.Section "work")) }}
     {{ $active = or $active (and (eq .Name "Tags") (eq $currentPage.Section "tags")) }}
     {{ if eq .Identifier "logo" }}
-    <a id="head" class="navigations__logo" href="/">
+    <a id="head" class="navigations__logo" title="{{ .Name }}" href="/">
         <div data-pos="f" class="head head__f active"></div>
         <div data-pos="s" class="head head__s"></div>
         <div data-pos="l" class="head head__l"></div>
@@ -15,14 +15,6 @@
         <div data-pos="d" class="head head__d"></div>
         <div data-pos="dl" class="head head__dl"></div>
         <div data-pos="dr" class="head head__dr"></div>
-
-        <!--        <img-->
-        <!--                alt="{{ .Name }}"-->
-        <!--                class="navigations__icon"-->
-        <!--                src="{{ "/img/logo.jpeg" | relURL }}"-->
-        <!--                width="80"-->
-        <!--                height="80"-->
-        <!--        />-->
     </a>
     {{ else }}
     <a title="{{ .Name }}"

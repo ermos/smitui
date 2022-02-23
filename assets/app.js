@@ -154,5 +154,4 @@ class Head {
     }
 }
 
-// @TODO only if browser mouse detected
 new Head()

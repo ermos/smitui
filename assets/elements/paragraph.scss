@@ -4,14 +4,14 @@ p {
   padding: $spacing-medium;
   line-height: 1.8;
 
-  span {
-    color: $neutral-color;
-    background-color: rgba($neutral-color, 0.2);
-    box-sizing: border-box;
-    padding: 0 5px;
-  }
-
   b {
     font-weight: bold;
   }
+}
+
+p span, em, .sl {
+  color: $neutral-color;
+  background-color: rgba($neutral-color, 0.2);
+  box-sizing: border-box;
+  padding: 0 5px;
 }

@@ -4,6 +4,7 @@
     {{ $active := (eq .Name $currentPage.Title) }}
     {{ $active = or $active (and (eq .Identifier "blog") (eq $currentPage.Section "post")) }}
     {{ $active = or $active (and (eq .Identifier "home") (eq $currentPage.Title "")) }}
+    {{ $active = or $active (and (eq .Name "Libraries") (eq $currentPage.Section "libs")) }}
     {{ $active = or $active (and (eq .Name "Works") (eq $currentPage.Section "work")) }}
     {{ $active = or $active (and (eq .Name "Tags") (eq $currentPage.Section "tags")) }}
     {{ if eq .Identifier "logo" }}
@@ -19,7 +20,7 @@
     {{ else }}
     <a title="{{ .Name }}"
        href="{{ .URL }}"
-       class="{{ if $active }}active{{ end }}"
+       class="navigations__link {{ if $active }}active{{ end }}"
     >{{ .Name }}</a>
     {{ end }}
     {{ end }}

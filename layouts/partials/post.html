@@ -1,0 +1,40 @@
+{{ define "critical" }}
+    {{ (resources.Get "critical.posts.scss" | resources.ToCSS | minify).Content | safeCSS }}
+{{ end }}
+{{ define "js" }}
+    {{ $js := resources.Get "algolia.js" | js.Build | resources.Minify }}
+    <script type="application/javascript" defer src="{{ $js.Permalink }}"></script>
+{{ end }}
+
+<div class="posts">
+    <aside class="posts__menu">
+        <div id="autocomplete"></div>
+        <h2>Categories 🔥</h2>
+        <div class="posts__categories">
+            {{ range $key, $value := .Site.Taxonomies.category }}
+                <a title="{{ $key }} gategory" href="/category/{{ $key | urlize  }}" class="posts__categories-item sl">
+                    {{ $key | humanize }}
+                </a>
+            {{ end }}
+        </div>
+    </aside>
+    <section class="posts__items">
+        {{ $paginator := .Paginate (where .Pages "Type" "post") }}
+        {{ range $paginator.Pages }}
+            <article class="posts__item">
+                <a href="{{ .Permalink }}">
+                    <h2 class="posts__title">{{ .Title | safeHTML }}</h2>
+                </a>
+                {{ if .Params.category }}
+                <a title="{{ .Params.category }} gategory" href="/category/{{ .Params.category | urlize }}" class="posts__category sl">
+                    {{ .Params.category }}
+                </a>
+                {{ end }}
+                <time class="posts__info" datetime="{{ .PublishDate }}">{{ .PublishDate.Format "Jan 2, 2006" }}</time>
+                <span class="posts__info">{{ .ReadingTime }} minutes read</span>
+            </article>
+        {{ end }}
+        {{ partial "pagination.html" . }}
+    </section>
+</div>
+

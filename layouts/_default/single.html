@@ -1,32 +1,39 @@
+{{ define "critical" }}
+    {{ (resources.Get "critical.post.scss" | resources.ToCSS | minify).Content | safeCSS }}
+{{ end }}
+{{ define "js" }}
+    <!-- no -->
+{{ end }}
 {{ define "main" }}
-
 <article class="post">
-    <h1 class="post__title">{{ .Title }}</h1>
-    <p class="post__time">
-        <time datetime="{{ .PublishDate }}">{{ i18n "publishDateFull" . }}</time> · {{ i18n "minuteRead" . }}
-    </p>
-    <p class="post__desc">{{ .Description }}</p>
-    <img title="{{ .Title }}" class="post__main-picture" src="{{ .Params.Image | relURL }}" />
-
-
-    {{ if or .Site.Params.showToc .Params.showToc }}
-        {{ partial "toc.html" . }}
-    {{ end }}
-
+    <h1 class="post__title">{{ .Title | safeHTML }}</h1>
+    <div class="post__info">
+        <p class="post__time">
+            <time datetime="{{ .PublishDate }}">{{ .PublishDate.Format "Jan 2, 2006" }}</time> · {{ .ReadingTime }} minutes read
+        </p>
+        <nav class="post__social">
+            <a href="https://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title | plainify }}"><i class="icon-twitter"></i></a>
+        </nav>
+    </div>
+    <img height="325" alt="{{ .Title }}" title="{{ .Title }}" class="post__main-picture" src="{{ .Params.Image | relURL }}" />
 
     <div class="content">
       {{ .Content }}
     </div>
 
-    {{ with .Params.tags }}
-        <div class="tags">
-            {{ range . }}
-                <a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{ . }}</a>
+    {{ if or .PrevInSection .NextInSection }}
+        <div class="pagination__separator"></div>
+        <section class="pagination">
+            {{ with .PrevInSection }}
+                <a class="pagination__child" href="{{ .Permalink }}">{{ .Title | plainify }}</a>
             {{ end }}
-        </div>
-    {{ end}}
+            {{ with .NextInSection }}
+                <a class="pagination__child" href="{{ .Permalink }}">{{ .Title | plainify }}</a>
+            {{ end }}
+        </section>
+    {{ end }}
 
-    {{ partial "comment.html" . }}
+    {{ template "_internal/disqus.html" . }}
 
 </article>
 

@@ -1,6 +1,9 @@
 {{ define "critical" }}
 {{ (resources.Get "critical.index.scss" | resources.ToCSS | minify).Content | safeCSS }}
 {{ end }}
+{{ define "js" }}
+    <!-- no -->
+{{ end }}
 {{ define "main" }}
 <h1 class="logo">Hello, I'm <span>Kilian</span> 🐊</h1>
 <p>
@@ -28,18 +31,23 @@
 </section>
 <h2>Nice ! And what about open-source ?</h2>
 <p>
-    You can find some stuff on my <a href="https://github.com/ermos">Github profile</a>,
+    You can find some stuff on my <a rel="noreferrer" href="https://github.com/ermos">Github profile</a>,
     <span>when I need a module</span> for one of my personal projects,
-    <span>I try to transform it into a library</span> and I publish it in <a href="https://github.com/">Github</a>.
+    <span>I try to transform it into a library</span> and I publish it in <a rel="noreferrer" href="https://github.com/">Github</a>.
 </p>
-<section id="github" class="github" data-github-count="4"></section>
+    <section id="github" class="github">
+        {{ $repos := getJSON "https://api.github.com/users/ermos/repos?sort=created&per_page=4&page=1&desc" }}
+        {{ range $repos }}
+            {{ partial "github.html" . }}
+        {{ end }}
+    </section>
 <h2>A final word?</h2>
 <p>
     <span>If you need something</span> about me, <span>you can contact me</span>
-    from this <a href="{{ "/contact" | relURL }}">form</a> or from
-    <a href="https://www.linkedin.com/in/kilian-smiti-106556148/">Linkedin</a>.
+    from this <a href="{{ "/contact/" | relURL }}">form</a> or from
+    <a rel="noreferrer" href="https://www.linkedin.com/in/kilian-smiti-106556148/">Linkedin</a>.
     For the youngest of you,
-    you can contact me also on <a href="https://twitter.com/doplex_">Twitter</a> or Discord (doplex#6928).
+    you can contact me also on <a rel="noreferrer" href="https://twitter.com/doplex_">Twitter</a> or Discord (doplex#6928).
 </p>
 <p>
     This is the end of my presentation,

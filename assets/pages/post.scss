@@ -1,34 +1,42 @@
 @import "../theme";
 
-.post {
-  &__title {
-    font-size: 3.2rem;
-    line-height: 1.1;
-    padding-bottom: 0;
-  }
-
-  &__time {
-    padding-top: 0;
-    color: $text-color-light-4;
-  }
-
-  &__desc {
-    font-size: 2.3rem;
-    line-height: 1.1;
-    color: $text-color-light-3;
-  }
-
-  &__main-picture {
-    margin: ($spacing-medium * 3) 0;
-    box-shadow: 0 0 10px rgba($text-color, 0.1);
-  }
-
+.content {
   img {
+    display: block;
+    margin: auto;
     max-width: 100%;
     border-radius: 10px;
+    box-shadow: 0 0 10px rgba($main-color-dark-2, 0.5);
+
+    &:hover {
+      transition: all 200ms ease-in;
+      box-shadow: 0 0 10px rgba($main-color-dark-2, 1);
+    }
+  }
+
+  ul {
+    list-style-type: square;
+    margin-left: $spacing-large * 2;
+    padding: $spacing-little;
+  }
+
+  ul li {
+    padding: $spacing-little;
+  }
+
+  &__pagination {
+    a {
+      margin: $spacing-little;
+      padding: $spacing-little;
+    }
   }
 }
 
 .tip {
   color: $text-color-light-3;
+}
+
+#disqus_thread {
+  width: 100%;
+  margin: $spacing-little;
 }

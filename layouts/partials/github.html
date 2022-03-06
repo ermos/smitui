@@ -1,0 +1,15 @@
+<a href="{{ .html_url }}" title="{{ .full_name }}" class="github__item github__card" target="_blank" rel="noreferrer">
+    <h3 class="github__title">{{ .full_name }}</h3>
+    <p class="github__desc">{{ .description }}</p>
+    <div class="github__info">
+        {{ if .language }}
+            <span class="github__lang">{{ .language }}</span>
+        {{ else }}
+            <span></span>
+        {{ end }}
+        <div class="github__stats">
+            <span>{{ .stargazers_count }} <i class="icon-star"></i></span>
+            <span>{{ .forks_count }} <i class="icon-share"></i></span>
+        </div>
+    </div>
+</a>

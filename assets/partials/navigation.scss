@@ -24,6 +24,13 @@ $nav-height: 50px;
     }
   }
 
+  &__link {
+    height: $nav-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   &__logo {
     position: relative;
     flex: inherit!important;

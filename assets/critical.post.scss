@@ -3,7 +3,61 @@
 @import "modules/icon-var";
 // Default
 @import "critical.default";
-// Partials
-@import "partials/work";
-// Pages
-@import "pages/index";
+
+.post {
+  &__title {
+    font-size: 6rem;
+    text-align: center;
+    line-height: 1.1;
+    padding-bottom: 0;
+  }
+
+  &__info {
+    margin-top: (80px - $spacing-little);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $spacing-little;
+  }
+
+  &__time {
+    padding: $spacing-little;
+    color: $text-color-light-4;
+  }
+
+  &__social {
+    padding: $spacing-little;
+  }
+
+  &__main-picture {
+    margin: ($spacing-medium * 3) 0;
+    box-shadow: 0 0 10px rgba($text-color, 0.1);
+    max-width: 100%;
+    border-radius: 10px;
+  }
+
+  p {
+    font-size: 1.8rem;
+    line-height: 1.5;
+  }
+
+  h2 {
+    font-size: 4rem;
+  }
+
+  h3 {
+    font-size: 3rem;
+  }
+
+  h4 {
+    font-size: 2rem;
+  }
+
+  h5 {
+    font-size: 1.6rem;
+  }
+
+  h6 {
+    font-size: 1.4rem;
+  }
+}

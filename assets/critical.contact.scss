@@ -1,0 +1,49 @@
+// Vars
+@import "theme";
+@import "modules/icon-var";
+// Default
+@import "critical.default";
+
+.contact {
+  padding: $spacing-medium;
+
+  label {
+    display: block;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-top: $spacing-large;
+  }
+
+  input, textarea {
+    width: 100%;
+    margin: $spacing-little 0;
+    border: 1px solid $main-color-dark-2;
+    padding: $spacing-medium;
+    box-sizing: border-box;
+
+    &:focus {
+      border: 1px solid $neutral-color;
+    }
+  }
+
+  textarea {
+    min-height: 150px;
+  }
+
+  &__btn {
+    margin: $spacing-medium 0;
+  }
+
+  button {
+    width: 100%;
+    color: $neutral-color;
+    background-color: rgba($neutral-color, 0.2);
+    text-align: center;
+    font-weight: bold;
+    box-sizing: border-box;
+    padding: $spacing-medium;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,29 @@
+{{ define "critical" }}
+{{ (resources.Get "critical.default.scss" | resources.ToCSS | minify).Content | safeCSS }}
+{{ end }}
+{{ define "js" }}
+    <!-- no -->
+{{ end }}
+{{ define "main" }}
+<h1>My <span>librairies</span></h1>
+<h2>Last libraries</h2>
+<section id="github" class="github">
+    {{ $repos := getJSON "https://api.github.com/users/ermos/repos?sort=created&per_page=4&page=1&desc" }}
+    {{ range $repos }}
+        {{ partial "github.html" . }}
+    {{ end }}
+</section>
+<h2>Latest contributions</h2>
+<section id="github" class="github">
+    {{ $repos = getJSON "https://api.github.com/users/ermos/repos?sort=updated&per_page=6&page=1&desc" }}
+    {{ range $repos }}
+        {{ partial "github.html" . }}
+    {{ end }}
+</section>
+
+<section class="pagination">
+    <a class="pagination__child" href="https://github.com/ermos" title="see more on github" rel="noreferrer" target="_blank">
+        See more on github
+    </a>
+</section>
+{{ end }}

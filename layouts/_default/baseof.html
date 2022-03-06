@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ $.Site.LanguageCode | default "en" }}">
   <head>
-    <title>{{ if .Title }}{{ .Title }} &middot; {{ end }}Kilian Smiti{{ if not .Title }} &middot; Full-Stack Developer{{ end }}</title>
+    <title>{{ if .Title }}{{ .Title | plainify }} &middot; {{ end }}Kilian Smiti{{ if not .Title }} &middot; Full-Stack Developer{{ end }}</title>
     <style>{{ block "critical" . }}{{ end }}</style>
     {{ partial "head.html" . }}
-
   </head>
 
   <body>
@@ -15,5 +14,6 @@
     </main>
 
     {{ partial "footer.html" . }}
+    {{ block "js" . }}{{ end }}
   </body>
 </html>

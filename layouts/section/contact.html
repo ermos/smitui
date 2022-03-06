@@ -1,0 +1,18 @@
+{{ define "critical" }}
+    {{ (resources.Get "critical.contact.scss" | resources.ToCSS | minify).Content | safeCSS }}
+{{ end }}
+{{ define "js" }}
+    <!-- no -->
+{{ end }}
+{{ define "main" }}
+    <h1>Contact <span>me</span></h1>
+    <form class="contact" method="post" action="https://formspree.io/f/xpzbrzoq">
+        <label for="email">Your email</label>
+        <input id="email" type="email" name="email" placeholder="john@doe.com">
+        <label for="message">Your message</label>
+        <textarea id="message" name="message"></textarea>
+        <div class="contact__btn">
+            <button type="submit">Send</button>
+        </div>
+    </form>
+{{ end }}

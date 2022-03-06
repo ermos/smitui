@@ -1,0 +1,17 @@
+{{ define "critical" }}
+    {{ (resources.Get "critical.post.scss" | resources.ToCSS | minify).Content | safeCSS }}
+{{ end }}
+{{ define "js" }}
+    <!-- no -->
+{{ end }}
+{{ define "main" }}
+<article class="post">
+    <h1 class="post__title"><span>{{ .Title | safeHTML }}</span></h1>
+    <div class="content">
+      {{ .Content }}
+    </div>
+
+</article>
+
+{{ end }}
+

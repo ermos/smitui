@@ -1,0 +1,23 @@
+@import "../theme";
+
+.pagination {
+  margin-top: $spacing-large;
+  display: flex;
+  align-items: center;
+
+  &__separator {
+    margin-top: $spacing-medium;
+    border-top: 3px solid $main-color-dark-1;
+  }
+
+  &__child {
+    flex: 1;
+    color: $neutral-color;
+    background-color: rgba($neutral-color, 0.2);
+    text-align: center;
+    font-weight: bold;
+    box-sizing: border-box;
+    padding: $spacing-medium;
+    margin: $spacing-little;
+  }
+}

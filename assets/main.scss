@@ -1,10 +1,13 @@
 // Vars
 @import "theme";
 @import "modules/icon-var";
+// Primary
+@import "modules/highlight";
 // Partials
 @import "partials/footer";
 @import "partials/elevator";
 @import "partials/github";
+@import "partials/pagination";
 // Pages
 @import "pages/post";
 

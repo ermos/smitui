@@ -1,0 +1,13 @@
+{
+  "name": "smitui",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "export $(cat .env | xargs) && hugo && atomic-algolia"
+  },
+  "dependencies": {
+    "@algolia/autocomplete-js": "^1.5.3",
+    "algoliasearch": "^4.12.1",
+    "atomic-algolia": "^0.3.19",
+    "dotenv": "^16.0.0"
+  }
+}

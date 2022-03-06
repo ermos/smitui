@@ -1,6 +1,9 @@
 {{ define "critical" }}
 {{ (resources.Get "critical.work.scss" | resources.ToCSS | minify).Content | safeCSS }}
 {{ end }}
+{{ define "js" }}
+    <!-- no -->
+{{ end }}
 {{ define "main" }}
 <h1>My <span>Developer Odyssey</span></h1>
 <h2>List of my works</h2>

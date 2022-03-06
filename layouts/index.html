@@ -24,8 +24,8 @@
     {{ partial "work-block.html" (index .Pages 1) }}
     {{ partial "work-block.html" (index .Pages 2) }}
     {{ end }}
-    <a href="#" class="work">
-        <img class="work__picture" title="Show more !" src="{{ "/img/work/miniatures/more.jpg" | relURL }}" />
+    <a href="{{ "/work/" | relURL }}" class="work">
+        <img width="175" height="175" class="work__picture" alt="Show more !" src="{{ "/img/work/miniatures/more.jpg" | relURL }}" />
         <h3 class="work__title">Show more !</h3>
     </a>
 </section>
